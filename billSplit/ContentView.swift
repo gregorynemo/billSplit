@@ -12,6 +12,16 @@ struct ContentView: View {
     var body: some View {
         Form {
             Text("Hello, World!")
+            Text("Hello, World!")
+            Text("Hello, World!")
+            Text("Hello, World!")
+            Text("Hello, World!")
+            Text("Hello, World!")
+            Text("Hello, World!")
+            Text("Hello, World!")
+            Text("Hello, World!")
+            Text("Hello, World!")
+            
         }
     }
 }
