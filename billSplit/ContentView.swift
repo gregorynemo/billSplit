@@ -13,24 +13,7 @@ struct ContentView: View {
         Form {
             Section {
                 Text("Hello, World!")
-                Text("Hello, World!")
-                Text("Hello, World!")
-                Text("Hello, World!")
-                Text("Hello, World!")
-                Text("Hello, World!")
             }
-            
-            Section {
-                Text("Hello, World!")
-                Text("Hello, World!")
-                Text("Hello, World!")
-                Text("Hello, Wild!")
-                Text("Hello, Wild!")
-                Text("Hello, Wild!")
-                Text("Hello, Wild!")
-                Text("Hello, World!")
-            }
-            
         }
     }
 }
