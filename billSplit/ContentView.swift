@@ -16,7 +16,7 @@ struct ContentView: View {
     let tipPercentages = [10, 15, 20, 25, 0]
     
     var totalPerPerson: Double {
-        let peopleCount = Double(numberOfPeople + 2)
+        let peopleCount = Double(numberOfPeople + 1)
         let tipSelection = Double(tipPercentages[tipPercentage])
         let orderAmount = Double(checkAmount) ?? 0
         
@@ -30,12 +30,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section {
+                Section (header: Text("Enter the bill amount and the # of people:")) {
                     TextField("Amount", text: $checkAmount)
                         .keyboardType(.decimalPad)
                     
                     Picker("Number of People", selection: $numberOfPeople) {
-                        ForEach(2 ..< 100) {
+                        ForEach(1 ..< 100) {
                             Text("\($0) people")
                         }
                     }
@@ -54,7 +54,7 @@ struct ContentView: View {
                     Text("$\(totalPerPerson, specifier: "%.2f")")
                 }
             }
-        .navigationBarTitle("Bill Split")
+            .navigationBarTitle("Bill Split", displayMode: .inline)
         }
     }
 }
