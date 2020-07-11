@@ -18,9 +18,14 @@ struct ContentView: View {
     var body: some View {
         Form {
             Section {
-                //First ""field"" is the grey text that will be displayed in the text field. To provide context to the user what will be needed for them to enter.
                 TextField("Amount", text: $checkAmount)
                     .keyboardType(.decimalPad)
+                
+                Picker("Number of People", selection: $numberOfPeople) {
+                    ForEach(2 ..< 100) {
+                        Text("\($0) people")
+                    }
+                }
             }
             
             Section {
