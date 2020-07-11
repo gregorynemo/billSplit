@@ -15,7 +15,7 @@ struct ContentView: View {
     
     let tipPercentages = [10, 15, 20, 25, 0]
     
-    var totalPerPerson: Double {
+    var totalPerPerson: (Double, Double) {
         let peopleCount = Double(numberOfPeople + 1)
         let tipSelection = Double(tipPercentages[tipPercentage])
         let orderAmount = Double(checkAmount) ?? 0
@@ -24,21 +24,24 @@ struct ContentView: View {
         let grandTotal = orderAmount + tipValue
         let amountPerPerson = grandTotal / peopleCount
         
-        return amountPerPerson
+        return (amountPerPerson, grandTotal)
     }
     
     var body: some View {
         NavigationView {
             Form {
-                Section (header: Text("Enter the bill amount and the # of people:")) {
+                Section (header: Text("Enter the bill amount:")) {
                     TextField("Amount", text: $checkAmount)
                         .keyboardType(.decimalPad)
-                    
+                }
+                
+                Section (header: Text("How many people?")) {
                     Picker("Number of People", selection: $numberOfPeople) {
-                        ForEach(1 ..< 100) {
-                            Text("\($0) people")
+                        ForEach(1 ..< 6) {
+                            Text("\($0)")
                         }
                     }
+                .pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section (header: Text("How much tip do you want to leave?")) {
@@ -50,8 +53,12 @@ struct ContentView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 }
                 
+                Section (header: Text("Total amount:")) {
+                    Text("$\(totalPerPerson.1, specifier: "%.2f")")
+                }
+                
                 Section (header: Text("Total per person:")) {
-                    Text("$\(totalPerPerson, specifier: "%.2f")")
+                    Text("$\(totalPerPerson.0, specifier: "%.2f")")
                 }
             }
             .navigationBarTitle("Bill Split")
