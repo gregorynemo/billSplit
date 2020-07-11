@@ -20,6 +20,7 @@ struct ContentView: View {
             Section {
                 //First ""field"" is the grey text that will be displayed in the text field. To provide context to the user what will be needed for them to enter.
                 TextField("Amount", text: $checkAmount)
+                    .keyboardType(.decimalPad)
             }
             
             Section {
