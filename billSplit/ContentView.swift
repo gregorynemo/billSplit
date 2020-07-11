@@ -51,7 +51,7 @@ struct ContentView: View {
                 }
                 
                 Section (header: Text("Total per person")) {
-                    Text("$\(totalPerPerson)")
+                    Text("$\(totalPerPerson, specifier: "%.2f")")
                 }
             }
         .navigationBarTitle("Bill Split")
