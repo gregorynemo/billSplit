@@ -54,7 +54,7 @@ struct ContentView: View {
                     Text("$\(totalPerPerson, specifier: "%.2f")")
                 }
             }
-            .navigationBarTitle("Bill Split", displayMode: .inline)
+            .navigationBarTitle("Bill Split")
         }
     }
 }
