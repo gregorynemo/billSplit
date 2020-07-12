@@ -8,6 +8,14 @@
 
 import SwiftUI
 
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
+
 struct ContentView: View {
     @State private var checkAmount = ""
     @State private var numberOfPeople = 0
@@ -33,6 +41,9 @@ struct ContentView: View {
                 Section (header: Text("Enter the bill amount:")) {
                     TextField("Amount", text: $checkAmount)
                         .keyboardType(.decimalPad)
+                    Button("Hide Keyboard") {
+                        self.hideKeyboard()
+                    }
                 }
                 
                 Section (header: Text("How many people?")) {
