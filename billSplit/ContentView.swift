@@ -27,12 +27,11 @@ struct ContentView: View {
     
     var totalPerPerson: (Double, Double) {
         var peopleCount: Double = 0
-        if numberOfPeople != 5 {
+        if morePeople == "" && numberOfPeople != 5 {
             peopleCount = Double(numberOfPeople + 1)
         } else {
             peopleCount = Double(morePeople) ?? 0
         }
-            
         let tipSelection = Double(tipPercentages[tipPercentage])
         let orderAmount = Double(checkAmount) ?? 0
         
@@ -68,7 +67,7 @@ struct ContentView: View {
                 }
                 if numberOfPeople == 4 {
                     Section {
-                        TextField("Enter # of people", text: $morePeople)
+                        TextField("Enter # of People", text: $morePeople)
                             .keyboardType(.decimalPad)
                         }
                     }
